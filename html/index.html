@@ -1,0 +1,230 @@
+<html>
+<head>
+<title>CS 476/676 Project</title>
+<link href='http://fonts.googleapis.com/css?family=Nunito:300|Crimson+Text|Droid+Sans+Mono' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" title="Default" href="styles/github.css">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>  
+
+<link rel="stylesheet" href="highlighting/styles/default.css">
+<script src="highlighting/highlight.pack.js"></script>
+
+<style type="text/css">
+body {
+	margin: 0px;
+	width: 100%;
+	font-family: 'Crimson Text', serif;
+	font-size: 20px;
+	background: #fcfcfc;
+}
+h1 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 28px;
+	margin: 25px 0px 0px 0px;
+	text-transform: lowercase;
+
+}
+
+h2 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 32px;
+	margin: 15px 0px 35px 0px;
+	color: #333;	
+	word-spacing: 3px;
+}
+
+h3 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 26px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+h4 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 22px;
+	margin: 10px 0px 10px 0px;
+	color: #333;
+	word-spacing: 2px;
+}
+
+h5 {
+	font-family: 'Nunito', sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	margin: 10px 0px 10px 0px;
+	color: #111;
+	word-spacing: 2px;
+}
+
+p, li {
+	color: #444;
+}
+
+a {
+	color: #DE3737;
+}
+
+.container {
+	margin: 0px auto 0px auto;
+	width: 960px;
+}
+
+#header {
+	background: #333;
+	width: 100%;
+}
+
+#headersub {
+	color: #ccc;
+	width: 960px;
+	margin: 0px auto 0px auto;
+	padding: 20px 0px 20px 0px;
+}
+
+.chart {
+	width: 480px;
+}
+.lol {
+	font-size: 16px;
+	color: #888;
+	font-style: italic;
+}
+.sep {
+	height: 1px;
+	width: 100%;
+	background: #999;
+	margin: 20px 0px 20px 0px;
+}
+.footer{
+	font-size: 16px;
+}
+.latex {
+	width: 100%;
+}
+
+.latex img {
+	display: block;
+	margin: 0px auto 0px auto;
+}
+
+pre {
+	font-family: 'Droid Sans Mono';
+	font-size: 14px;
+}
+
+td img {
+  vertical-align: middle;
+}
+
+#contents a {
+}
+</style>
+<script type="text/javascript">
+    hljs.initHighlightingOnLoad();
+</script>
+</head>
+<body>
+<div id="header" >
+<div id="headersub">
+<h1>Sheng Kai Liao <span style="color: #DE3737"></span></h1>
+</div>
+</div>
+<div class="container">
+<h2>CSC 476/676 AU / Homework 4 / Motion Magnification</h2>
+
+
+<!--Q1 chunk-->
+<div style="clear:both">
+<h3>Question 1 (20pts): Follow the instructions in Google CoLab and finish the exercises described.  Some tutorials on video processing.  </h3>
+
+<p> 	I have completed the following guidelines for this question.</p>
+<div style="text-align: center; padding: 30px">
+<h3>Input vedio</h3>
+<video width="320" height="240" controls>
+
+<SOURCE SRC="media/bill.mp4" TYPE="video/mp4">
+</video>
+</div>
+<h3>For question 1a, I generate a new image which contains the same column data from images in video.</h3>
+
+
+<div style="text-align: center; padding: 30px">
+<img src="media/Q1a result.png" />
+<p style="font-size: 14px;text-align: center;">Fig 1. Results for question 1a</p>
+</div>
+ 
+ <h3>For question 1b, I firstly generate a image list which contains the gaussian filter which consider time and space variable. Afterward, I extra the central column from each gaussian as a space-temporal gaussian.</h3>
+
+
+<div style="text-align: center; padding: 30px">
+<img src="media/Q1b result.png" />
+<p style="font-size: 14px;text-align: center;">Fig 2. Results for question 1b</p>
+</div>
+<!--Q2 chunk-->
+<div style="clear:both">
+<h3>Question 2 (50pts) Problem Statement: In this problem we will investigate motion magnification in videos. Recall that position shifts
+in image space correspond to phase shifts in the frequency domain of the Fourier transform.
+This means that for two images, we can compare the Fourier transform of the two images
+to find the phase shift between the images. Amplifying the phase shift by a fixed factor in
+the Fourier transform frequency domain will amplify the position shift by the same factor in
+the image domain after we perform the inverse Fourier transform. We will use this idea to
+exaggerate the motions in videos.
+</h3>
+<h3>Section A:</h3>
+<p> 	For section a, you can observe that the shift weight has been significant amplified. I firstly calculate tthe angle shit from im1 to im2. Then, I implement the amplified angle by using Eular's formula in im1 frequency domain as base image.</p>
+<div style="text-align: center; padding: 30px">
+<img src="media/Q2a result.png" />
+<p style="font-size: 14px">Fig 3.Results for question 2a</p>
+</div>
+<h3>Section B:</h3>
+<p> 	The implementation in two dot shifting is not going well. You can see the shift result been amplified but losing the shifting direction.</p>
+<div style="text-align: center; padding: 30px">
+<img src="media/Q2b result.png" />
+<p style="font-size: 14px">Fig 4.Results for question 2b</p>
+</div>
+
+
+<h3>Section C:</h3>
+<p> 	By implementing the space-temporal gaussian filter, the result successfully amplified the shift weight with correct direction. The space-temporal gaussian filter emhpasized the shifting track from neared dot in order to find the most correct track for object shifting. </p>
+<div style="text-align: center; padding: 30px">
+<img src="media/Q2c result.png" />
+<p style="font-size: 14px">Fig 5.Results for question 2c</p>
+</div>
+
+<h3>Section D and F:</h3>
+<p> 	After fulfilled the todo lines, the generated video has significant improved about the motion amplitude. However, there will be many black spots while setting sigma as 2 for generation. Therefore, I change the sigma into 1 and the result is more clear but the computing time was been increased badly. Also, I find the error variable input in cv2.VideoWrite funtion. The input (hight,width) should turn to (width,hight). By doing so, the outputs will successfully export into video. To understand more about my code, please refer to my code part.</p>
+<div style=" padding: 30px">
+<video width="320" height="240" controls>
+	<SOURCE SRC="media/bill.mp4" TYPE="video/mp4">
+
+</video>
+	<p style="font-size: 14px">Fig 6.Input vedio</p>
+<video width="320" height="240" controls>
+	<SOURCE SRC="media/bill_magnified.mp4" TYPE="video/mp4">
+	
+</video>
+<p style="font-size: 14px">Fig 7.Amplified vedio</p>
+</div>
+
+
+
+<div style=" padding: 30px">
+<video width="320" height="240" controls>
+	<SOURCE SRC="media/guitar.mp4" TYPE="video/mp4">
+</video>
+<p style="font-size: 14px">Fig 8.Input vedio</p>
+<video width="320" height="240" controls>
+	<SOURCE SRC="media/guitar_magnified.mp4" TYPE="video/mp4">
+</video>
+<p style="font-size: 14px">Fig 9.Amplified vedio</p>
+</div>
+
+
+
+
+</body>
+</html>
